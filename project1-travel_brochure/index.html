@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cancun Travel Brochure</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <h1>Travel Brochure</h1>
+        <p>Cancun, Mexico</p>
+      </div>
+    </header>
+
+    <nav class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="about">
+        <h2>About</h2>
+        <p>
+          Enjoy the beautiful destination of Cancun, Mexico. Browse our travel
+          packages and book your stay today!
+        </p>
+        <img src="img/cancun.jpg" alt="Beach in Cancun" />
+      </section>
+
+      <section id="packages" class="packages">
+        <h2>Packages</h2>
+
+        <table>
+          <caption>
+            Cancun, Mexico Travel Packages
+          </caption>
+          <thead>
+            <tr>
+              <th>Package Name</th>
+              <th>Duration</th>
+              <th>Ammenities</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>Starter Package</td>
+            <td>1 Week</td>
+            <td>Pool, Buffet</td>
+            <td>$1,000</td>
+          </tr>
+          <tr>
+            <td>Intermediate</td>
+            <td>2 Weeks</td>
+            <td>Pool, Hottub, Restaurant</td>
+            <td>$1750</td>
+          </tr>
+          <tr>
+            <td>Pro</td>
+            <td>4 Weeks</td>
+            <td>Pool, Hottub, Restaurant, Snorkling Trip</td>
+            <td>$2500</td>
+          </tr>
+        </table>
+      </section>
+
+      <section id="contact" class="contact">
+        <h2>Contact</h2>
+
+        <form id="inquiries">
+          <div class="input-field">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+
+          <div class="input-field">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+
+          <div class="input-field">
+            <label for="package-select">Select a package:</label>
+            <select name="package-select" id="package-select" required>
+              <option value="placeholder">None</option>
+              <option value="starter">Starter package</option>
+              <option value="intermediate">Intermediate package</option>
+              <option value="pro">Pro package</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <label for="comments">Comments or Additional Info:</label>
+            <textarea id="comments" name="comments" rows="3"></textarea>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </section>
+
+      <footer>Cancun Travel Trips</footer>
+    </main>
+  </body>
+</html>
