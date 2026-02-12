@@ -11,8 +11,12 @@ body {
     grid-template-areas:
     "header"
     "nav"
-    "" ;
+    "main";
 }
+
+.site-header {grid-area: header;}
+.site-nav {grid-area: nav;}
+main {grid-area: main;}
 
 img {
     max-width: 100%;
