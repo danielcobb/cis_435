@@ -94,7 +94,57 @@ body {
 
 .table {
     width: 100%;
-    border: solid 1px #ddd;
     border-collapse: collapse;
-    margin-bottom: 5px;
+    border: 1px solid #F0ECE9;
+    margin-top:10px;
+}
+
+.table caption{
+    caption-side: top;
+    font-weight: bold;
+    text-align: left;
+    padding: 5px 0;
+}
+
+.table thead, th {
+    background: #F0ECE9;
+    text-align: left;
+    padding: 10px;
+    border: solid 2px black;
+
+}
+
+.table td {
+    background: lightgrey;
+    padding: 7.5px;
+    text-align: left;
+    border: 2px solid black;
+}
+
+.contact h2 {margin: 0;}
+#inquiries {
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.input-field {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.input-field input, 
+.input-field select, 
+.input-field textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#inquiries button {
+    
 }
