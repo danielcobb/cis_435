@@ -2,10 +2,19 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #ffffff;
+    --secondary-color: #f0ece9;
+    --text-color: black;
+    --spacing: 12px;
+    --accent-color: #90C293; /* source- https://colors.artyclick.com/color-names-dictionary/color-names/light-forest-green-color */
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     line-height: 1.3;
+    color:var(--text-color);
 
     display: grid;
     grid-template-areas:
@@ -13,23 +22,15 @@ body {
     "nav"
     "main"
     "footer";
+    gap: var(--spacing);
 }
 
-.site-header {grid-area: header;}
-.site-nav {grid-area: nav;}
-.content {grid-area: main;}
-.site-footer {grid-area: footer;}
-
-.site-header, 
-.site-nav,
-.content, 
-.site-footer {
-    padding: 10px;
-}
-
+/* header */
 .site-header {
-    background: #F0ECE9 ;
-    border-bottom: 2px solid #F0ECE9;
+    grid-area: header;
+    padding: var(--spacing);
+    background: var(--secondary-color);
+    border: 1px solid var(--secondary-color);
 }
 
 .site-header h1 {
@@ -40,63 +41,81 @@ body {
     margin: 0;
     padding-left: 3px; /* align with h1 */
 }
+/* end header */
 
-.site-footer {
-    background: #F0ECE9;
-}
-
+/* nav */
 .site-nav {
+    grid-area: nav;
+    padding: var(--spacing);
     display: flex;
-    gap: 10px;
-    border-bottom: 2px solid #F0ECE9;
     flex-wrap: wrap;
-    align-items: center;
-    border-bottom: 2px solid #F0ECE9;
+
+    background: var(--primary-color);
+    border-bottom: 1px solid var(--secondary-color);
 }
 
 .site-nav a {
     text-decoration: none;
-    border: 1px solid #F0ECE9;
+    border: 1px solid var(--secondary-color);
+    border-collapse: collapse;
     padding: 8px 10px;
     border-radius: 3px;
-    color: black;
-    background: #fff;
+    color: var(--text-color);
+    background: var(--accent-color);
 }
 
 .site-nav a:hover {
-    background:#F0ECE9 ;
+    background: var(--secondary-color);
+}
+/* end nav */
+
+/* content */
+.content {
+    grid-area: main;
+
+    display: grid;
+    gap: var(--spacing);
+
+    border-bottom: 1px solid var(--secondary-color);
 }
 
+.content section {
+    padding: var(--spacing);
+}
+/* end content */
+
+/* about */
 .about h2 {
     margin: 0;
 }
 
 .about p {
-    margin: 1px;
+    margin: 0;
 }
+/* end about */
 
-.hero { /* image in about section */
-    max-width: 100%;
+/* image/hero */
+.hero { 
+    max-width: 1250px;
     height: auto;
     display: block;
     margin-top: 5px;
     border-radius: 10px; /* rounded corners */
 }
+/* end image/hero */
 
-.packages {
-    margin-top: 10px;
-    border-bottom: solid 2px #F0ECE9;
-}
-
+/* packages */
 .packages h2 {
     margin: 0;
 }
+/* end packages */
 
+/* table */
 .table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid #F0ECE9;
-    margin-top:10px;
+    border: 1px solid var(--secondary-color);
+    margin-top:var(--spacing);
 }
 
 .table caption{
@@ -106,11 +125,11 @@ body {
     padding: 5px 0;
 }
 
-.table thead, th {
-    background: #F0ECE9;
+.table thead th {
+    background: var(--secondary-color);
     text-align: left;
     padding: 10px;
-    border: solid 2px black;
+    border: solid 2px var(--text-color);
 
 }
 
@@ -118,17 +137,30 @@ body {
     background: lightgrey;
     padding: 7.5px;
     text-align: left;
-    border: 2px solid black;
+    border: 2px solid var(--text-color);
 }
+/* end table */
 
+/* contact header */
 .contact h2 {margin: 0;}
+/* end contact header */
+
+/* contact form/inquiries */
 #inquiries {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing);
     display: flex;
     flex-direction: column;
-    align-items: stretch;
-    gap: 10px;
+    align-items:flex-start;
+    gap: var(--spacing);
+}
+
+#inquiries button {
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+    padding: 10px var(--spacing);
+    background: var(--accent-color);
+    align-self: flex-start;
 }
 
 .input-field {
@@ -137,11 +169,123 @@ body {
     gap: 7px;
 }
 
-.input-field input, 
-.input-field select, 
+.input-field label {
+    width: 190px;
+}
+
+.input-field input,
+.input-field select,
 .input-field textarea {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
+    flex: auto;
+    padding: 5px;
+    border: 1px solid var(--text-color);
     border-radius: 5px;
+
+}
+/* end contact form/inquiries */
+
+/* footer */
+.site-footer {
+    grid-area: footer;
+    padding: var(--spacing);
+    background: var(--secondary-color);
+    text-align: center;
+    border: 1px solid var(--secondary-color);
+    width: 100%;
+}
+/* end footer */
+
+/* phone size */
+@media (max-width: 768px) {
+    .input-field {
+        flex-direction: column; /* stack the form fields into one column */
+        align-items: stretch;
+    }
+
+    .input-field label {
+        width: auto;
+    }
+
+    .hero {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: 300px;
+    }
+}
+
+/* tablet size */
+@media (min-width: 769px) and (max-width: 1023px) {
+    /* on tablets, have photo next to packages, contact and footer below */
+    .content {
+        display: grid;
+        grid-template-columns: 2fr 1fr; 
+        grid-template-areas: 
+        "about packages"
+        "contact contact"
+        "footer footer";
+
+        gap: var(--spacing);
+        align-items: start;
+
+    }
+
+    .about {
+        grid-area: about;
+    }
+
+    .packages {
+        grid-area: packages;
+    }
+
+    .contact {
+        grid-area: contact;
+    }
+
+    .site-footer {
+        grid-area: footer;
+    }
+
+    .hero {
+        width: 100%;
+        height: auto;
+        max-height: 400px;
+        max-width: 100%;
+    }
+}
+
+/* desktop or larger */
+@media (min-width: 1024px) {
+    /* on desktop, have photo next to packages, contact below packages, then footer on bottom */
+    .content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: 
+        "about packages"
+        "about contact";
+        gap: var(--spacing);
+        align-items: start;
+    }
+
+    .about {
+        grid-area: about;
+    }
+
+    .packages {
+        grid-area: packages;
+    }
+
+    .contact {
+        grid-area: contact;
+    }
+
+    .hero {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 0;
+    }
+
+    .site-footer {
+        align-self: stretch;
+    }
 }

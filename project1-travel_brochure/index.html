@@ -22,7 +22,7 @@
     </nav>
 
     <main class="content">
-      <section class="about">
+      <section class="about" id="about">
         <h2>Explore Cancun</h2>
         <p>
           Enjoy the beautiful destination of Cancun, Mexico. Browse our travel
@@ -35,7 +35,7 @@
         />
       </section>
 
-      <section class="packages">
+      <section class="packages" id="packages">
         <h2>Packages</h2>
 
         <table class="table">
@@ -50,24 +50,27 @@
               <th>Price</th>
             </tr>
           </thead>
-          <tr>
-            <td>Starter Package</td>
-            <td>1 Week</td>
-            <td>Pool, Buffet</td>
-            <td>$1,000</td>
-          </tr>
-          <tr>
-            <td>Intermediate</td>
-            <td>2 Weeks</td>
-            <td>Pool, Hottub, Restaurant</td>
-            <td>$1750</td>
-          </tr>
-          <tr>
-            <td>Pro</td>
-            <td>4 Weeks</td>
-            <td>Pool, Hottub, Restaurant, Snorkling Trip</td>
-            <td>$2500</td>
-          </tr>
+
+          <tbody>
+            <tr>
+              <td>Starter Package</td>
+              <td>1 Week</td>
+              <td>Pool, Buffet</td>
+              <td>$1,000</td>
+            </tr>
+            <tr>
+              <td>Intermediate</td>
+              <td>2 Weeks</td>
+              <td>Pool, Hottub, Restaurant</td>
+              <td>$1750</td>
+            </tr>
+            <tr>
+              <td>Pro</td>
+              <td>4 Weeks</td>
+              <td>Pool, Hottub, Restaurant, Snorkling Trip</td>
+              <td>$2500</td>
+            </tr>
+          </tbody>
         </table>
       </section>
 
@@ -88,7 +91,7 @@
           <div class="input-field">
             <label for="package-select">Select a package:</label>
             <select name="package-select" id="package-select" required>
-              <option value="placeholder">None</option>
+              <option value="">None</option>
               <option value="starter">Starter package</option>
               <option value="intermediate">Intermediate package</option>
               <option value="pro">Pro package</option>
@@ -102,8 +105,7 @@
           <button type="submit">Submit</button>
         </form>
       </section>
-
-      <footer class="site-footer">Cancun Travel Trips</footer>
     </main>
+    <footer class="site-footer">Cancun Travel Trips (2026)</footer>
   </body>
 </html>
