@@ -101,6 +101,7 @@ body {
     display: block;
     margin-top: 5px;
     border-radius: 10px; /* rounded corners */
+    object-fit: fill;
 }
 /* end image/hero */
 
