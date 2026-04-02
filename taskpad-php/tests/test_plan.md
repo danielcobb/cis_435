@@ -2,7 +2,7 @@
 
 ## 1. Run run_tests.php- This will output basic automated tests.
 
-## 2. Manual tests to view status codes
+## 2. Manual tests to view status codes and other behavior.
 
 ### a. Create a valid task. Expected status 302 and redirect to index.php. PASSED
 
