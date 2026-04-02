@@ -24,3 +24,12 @@ Before:
 
 After:
 ![After](image-5.png)
+
+### e. Complete a task. Should return a 302 status code and there will be a line through the task. Flash message will display that the task is completed. PASSED
+
+![Test e](image-6.png)
+![Test e flash message](image-7.png)
+
+### f. Empty task list. The page should should no tasks and display a hyperlink where tasks would be, with a redirect to the new task page.
+
+![Test f](image-8.png)
