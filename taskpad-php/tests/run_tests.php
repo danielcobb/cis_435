@@ -90,6 +90,30 @@ $tests = [
         ],
         'expectedValid' => false
     ],
+
+    [
+        'id' => 'TC09',
+        'description' => 'Empty Priority',
+        'input' => [
+            'title' => 'Wash dishes',
+            'description' => '',
+            'priority' => '',
+            'due' => ''
+        ],
+        'expectedValid' => false
+    ],
+
+    [
+        'id' => 'TC10',
+        'description' => 'High priority task',
+        'input' => [
+            'title' => 'Important task',
+            'description' => '',
+            'priority' => 'High',
+            'due' => ''
+        ],
+        'expectedValid' => true
+    ],
 ];
 
 $passed = 0;
