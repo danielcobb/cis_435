@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background: #152331;  /* source-https://www.uigradients.com/#Moonwalker */
+    background: -webkit-linear-gradient(to right, #000000, #152331); 
+    background: linear-gradient(to right, #000000, #152331); 
+}
+
+#root {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+}
+
+header {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #f59e0b;
+}
+
+header h1 {
+    margin-bottom: 0.50rem;
+    font-size: 3rem;
+    font-weight: 500;
+    color: #f59e0b;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+section {
+    border: 1px solid #f59e0b;
+    padding: 1rem;
+}
+
+h2 {
+    margin-top: 0rem;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+form h2 {
+    margin-bottom: 0rem;
+}
+
+form > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+}
+
+label {
+    font-size: 1.50rem;
+    font-weight: 300;
+}
+
+input {
+    border: 1px solid #444;
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 0.40rem;
+    background: #0d1a26;
+    color: white;
+}
+
+input::placeholder {
+    color: #556;
+}
+
+input:focus {
+    border-color: #f59e0b;
+}
+
+button[type="submit"] {
+    align-self: flex-start;
+    background: #f59e0b;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 0.50rem;
+    cursor: pointer;
+    margin-top: 0.25rem;
+}
+
+button[type="submit"]:hover {
+    background: #d97706;
+}
+
+button[type="button"] {
+    background: transparent;
+    color: white;
+    border: 1px solid #555;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    padding: 0.30rem 0.60rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button[type="button"]:hover {
+    color: #f87171;
+    border-color: #f87171;
+}
+
+#search {
+    margin-top: 0rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 1rem;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 0.50rem;
+}
+
+li:hover {
+    border-color: #f59e0b;
+}
+
+li > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+
+li strong {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    color: #f59e0b;
+}
+
+li span {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+p {
+    font-size: 1rem;
+    margin-top: 0.75rem;
+    font-style: italic;
+    color: #aaa;
+}
+
+span[role="alert"] {
+    font-size: 1rem;
+    color: #f87171;
+}
