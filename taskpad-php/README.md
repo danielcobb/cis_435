@@ -1,4 +1,4 @@
-# _TaskPad-PHP Project 3 cis-435_
+# **TaskPad-PHP Project 3 cis-435**
 
 ## Instructions to run
 
