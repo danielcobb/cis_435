@@ -22,21 +22,5 @@
         "priority": "Low",
         "due": "2026-04-02",
         "completed": false
-    },
-    {
-        "id": "task69cdf123a2f793.19662887",
-        "title": "Test task",
-        "description": "Test task",
-        "priority": "Medium",
-        "due": "2026-04-02",
-        "completed": false
-    },
-    {
-        "id": "task69cdf136e47ce2.72162458",
-        "title": "Test task",
-        "description": "Test task",
-        "priority": "Medium",
-        "due": "2026-04-02",
-        "completed": false
     }
 ]
