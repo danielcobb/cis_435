@@ -7,3 +7,5 @@
 ## To run tests
 
 1. Type php tests/run_tests.php
+
+## Screenshots are found in the screenshots folder. UML diagrams are found in the docs folder.
