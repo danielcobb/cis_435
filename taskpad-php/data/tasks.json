@@ -1,1 +1,10 @@
-[]
+[
+    {
+        "id": "task69cf2a7b08f1b1.81562416",
+        "title": "Pet Cats",
+        "description": "Pet cats so they don't kill me.",
+        "priority": "High",
+        "due": "2026-04-02",
+        "completed": false
+    }
+]
