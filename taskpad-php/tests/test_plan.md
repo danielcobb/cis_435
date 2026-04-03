@@ -33,3 +33,18 @@ After:
 ### f. Empty task list. The page should should no tasks and display a hyperlink where tasks would be, with a redirect to the new task page.
 
 ![Test f](image-8.png)
+
+## Automated Tests output:
+
+[PASS] TC01 - Happy Path
+[PASS] TC02 - Missing title
+[PASS] TC03 - Invalid priority
+[PASS] TC04 - Invalid date format
+[PASS] TC05 - Invalid date i.e. Aprill 33
+[PASS] TC06 - Title > 200 characters
+[PASS] TC07 - Valid task with optional fields left empty
+[PASS] TC08 - Title with only spaces
+[PASS] TC09 - Empty Priority
+[PASS] TC10 - High priority task
+
+Passed 10 out of 10 tests.
