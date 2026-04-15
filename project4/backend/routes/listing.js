@@ -1,5 +1,5 @@
-import express from 'express'
-import router from express.router
+const express = require('express')
+const router = express.Router()
 const Listing = require('../models/Listing')
 const { protect } = require('../middleware/authMiddleware')
 
