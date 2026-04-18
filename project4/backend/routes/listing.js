@@ -73,33 +73,6 @@ router.post('/', protect, upload.single('image'), async (req, res) => {
     }
 })
 
-//update a listing, user must be logged in and own the listing
-router.put('/:id', protect, async (req, res) => {
-    try {
-        const listing = await Listing.findById(req.params.id)
-
-        if (!listing) {
-            return res.status(404).json({ message: 'Listing not found' })
-        }
-
-        //check if the user created the listing
-        if (listing.seller.toString() !== req.user._id.toString()) {
-            return res.status(403).json({ message: 'Can\'t edit a listing you didn\'t create' })
-        }
-        
-        //get the new updated listing
-        const updated = await Listing.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { new: true, runValidators: true } //returns the new listing while revalidating data
-        )
-
-        res.json(updated)
-    }catch (error) {
-        res.status(500).json({ message: 'Server error', error: error.message})
-    }
-}) 
-
 //delete a listing, user must be logged in and own the listing
 router.delete('/:id', protect, async (req, res) => {
     try {

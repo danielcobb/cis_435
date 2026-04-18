@@ -52,7 +52,7 @@ function CreateListing() {
       return setError("Please select a condition");
     }
 
-    if (!formData.condition) {
+    if (!imageFile) {
       return setError("Please upload an image");
     }
 

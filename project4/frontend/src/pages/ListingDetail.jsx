@@ -62,15 +62,6 @@ function ListingDetail() {
             style={styles.image}
           />
         )}
-        <span
-          style={{
-            ...styles.badge,
-            backgroundColor:
-              listing.listingType === "bike" ? "#2b6cb0" : "#276749",
-          }}
-        >
-          {listing.listingType === "bike" ? "Bike" : "Part"}
-        </span>
 
         <h1 style={styles.title}>{listing.title}</h1>
         <p style={styles.brand}>{listing.brand}</p>

@@ -36,7 +36,7 @@ router.post('/register', async (req, res) => {
             token: generateToken(user._id)
         })
     }catch (error) {
-        res.status(500).json({mesage: 'Server error', error: error.message})}
+        res.status(500).json({message: 'Server error', error: error.message})}
 })
 
 //login checks for a valid email and password
