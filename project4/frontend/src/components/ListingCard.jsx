@@ -47,6 +47,11 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     gap: "0.75rem",
+    justifyContent: "space-between",
+    cursor: "pointer",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease",
+    height: "100%",
+    boxSizing: "border-box",
   },
   title: {
     fontSize: "1.2rem",
@@ -87,28 +92,19 @@ const styles = {
     color: "#888",
     margin: 0,
   },
-  button: {
-    display: "block",
-    textAlign: "center",
-    backgroundColor: "#1a1a2e",
-    color: "white",
-    padding: "0.6rem",
-    borderRadius: "4px",
-    marginTop: "0.5rem",
-    textDecoration: "none",
-    fontSize: "0.95rem",
-  },
   image: {
     width: "100%",
     height: "200px",
     objectFit: "contain",
     borderRadius: "4px",
+    objectPosition: "center",
   },
 
   cardLink: {
     textDecoration: "none",
     color: "inherit", //stop the link from turning blue
     display: "block",
+    height: "100%",
   },
 };
 

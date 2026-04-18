@@ -222,6 +222,8 @@ const styles = {
     color: "#444",
     lineHeight: "1.6",
     margin: 0,
+    wordBreak: "break-word",
+    overflowWrap: "break-word", //contains long descriptions
   },
   detailsGrid: {
     display: "grid",

@@ -168,7 +168,12 @@ function CreateListing() {
           <div style={styles.field}>
             <label style={styles.label}>Description</label>
             <textarea
-              style={{ ...styles.input, height: "120px", resize: "vertical" }}
+              style={{
+                ...styles.input,
+                height: "120px",
+                resize: "vertical",
+                fontFamily: "inherit",
+              }}
               name="description"
               value={formData.description}
               onChange={handleChange}
