@@ -52,6 +52,10 @@ function CreateListing() {
       return setError("Please select a condition");
     }
 
+    if (!formData.condition) {
+      return setError("Please upload an image");
+    }
+
     setLoading(true); //disables the submit button
 
     try {
@@ -87,7 +91,7 @@ function CreateListing() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h2 style={styles.title}>Post a listing</h2>
+        <h2 style={styles.title}>Create a listing</h2>
 
         {error && <p style={styles.error}>{error}</p>}
 
@@ -249,12 +253,13 @@ function CreateListing() {
           )}
 
           <div style={styles.field}>
-            <label style={styles.label}>Image (optional)</label>
+            <label style={styles.label}>Image</label>
             <input
               type="file"
               accept="image/*"
               onChange={handleImageChange}
               style={styles.input}
+              required
             />
             {imageFile && (
               <p

@@ -68,7 +68,7 @@ const listingSchema = new mongoose.Schema({
     },
     imageUrl: {
         type: String,
-        default:null
+        required: [true, 'image is required']
     }
 },
 {timestamps: true}
