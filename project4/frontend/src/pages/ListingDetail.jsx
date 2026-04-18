@@ -16,7 +16,7 @@ function ListingDetail() {
   useEffect(() => {
     const fetchListing = async () => {
       try {
-        const { data } = await axios.get(`/api/listings/${id}`);
+        const { data } = await axios.get(`/api/listings/${id}`); //gets the singular listing
         setListing(data);
       } catch (err) {
         setError("Listing not found");
@@ -29,14 +29,14 @@ function ListingDetail() {
   }, [id]);
 
   const handleDelete = async () => {
-    if (!window.confirm("Are you sure you want to delete this item?")) return;
+    if (!window.confirm("Are you sure you want to delete this item?")) return; //confirmation box to confirm the delete
 
     try {
       await axios.delete(`/api/listings/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` },
       });
 
-      navigate("/");
+      navigate("/"); //navigate to the home page
     } catch (err) {
       setDeleteError(err.response?.data?.message || "Failed to delete listing");
     }
@@ -46,6 +46,7 @@ function ListingDetail() {
   if (error) return <p style={styles.error}>{error}</p>;
   if (!listing) return null;
 
+  //check if the user owns the listing
   const isOwner = user && listing.seller?._id === user._id;
 
   return (

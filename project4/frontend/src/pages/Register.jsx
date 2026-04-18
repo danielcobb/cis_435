@@ -22,7 +22,7 @@ function Register() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault(); //stop the page from reloading
     setError(null);
 
     if (formData.password !== formData.confirmPassword) {
@@ -42,8 +42,10 @@ function Register() {
         password: formData.password,
       });
 
+      //log the user in
       login(data);
 
+      //navigate to the homepage
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");

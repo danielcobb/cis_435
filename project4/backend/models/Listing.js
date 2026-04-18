@@ -1,5 +1,9 @@
 const mongoose = require('mongoose')
 
+/*
+This file creates the schema for the Listing table in MongoDB.
+Contains attributes for bikes and parts.
+*/
 const listingSchema = new mongoose.Schema({
     listingType: {
         type: String,

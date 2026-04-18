@@ -12,16 +12,17 @@ function Home() {
   const [condition, setCondition] = useState("");
 
   const fetchListings = async () => {
-    setLoading(true);
+    setLoading(true); //used when displaying loading icon
     setError(null);
 
     try {
+      //build the filter query
       const params = new URLSearchParams();
       if (search) params.append("search", search);
       if (listingType) params.append("listingType", listingType);
       if (condition) params.append("condition", condition);
 
-      const { data } = await axios.get(`/api/listings?${params.toString()}`);
+      const { data } = await axios.get(`/api/listings?${params.toString()}`); //get the listings based on the query string
       setListings(data);
     } catch (err) {
       setError("failed to load listings");
@@ -31,15 +32,16 @@ function Home() {
   };
 
   useEffect(() => {
-    fetchListings();
+    fetchListings(); //used to filter listings on the parts/bikes and condition filters
   }, [listingType, condition]);
 
   const handleSearch = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //stop the page from reloading
     fetchListings();
   };
 
   const handleReset = () => {
+    //reset button resets the filters to defaults, so showing all listings
     setSearch("");
     setListingType("");
     setCondition("");

@@ -35,45 +35,48 @@ function CreateListing() {
   }
 
   const handleChange = (e) => {
-    const value = e.target.value === "" ? null : e.target.value;
-    setFormData({ ...formData, [e.target.name]: value });
+    const value = e.target.value === "" ? null : e.target.value; //converts empty strings to null for optional fields
+    setFormData({ ...formData, [e.target.name]: value }); //uses input's name as key for input fields
   };
 
   const handleImageChange = (e) => {
-    setImageFile(e.target.files[0]);
+    setImageFile(e.target.files[0]); //stores images
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError(null);
+    e.preventDefault(); //prevent the browser from refreshing the page
+    setError(null); //clears errors
 
     if (!formData.condition) {
+      //check if the condition of the item is selected
       return setError("Please select a condition");
     }
 
-    setLoading(true);
+    setLoading(true); //disables the submit button
 
     try {
       const data = new FormData();
 
       Object.keys(formData).forEach((key) => {
+        //loop through each field in formData
         if (formData[key] !== null) {
+          //skip null values
           data.append(key, formData[key]);
         }
       });
 
       if (imageFile) {
-        data.append("image", imageFile);
+        data.append("image", imageFile); //add the image file separately
       }
 
       const config = {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${user.token}`, //sends the JWT to the backend
         },
       };
 
       await axios.post("/api/listings", data, config);
-      navigate("/");
+      navigate("/"); //after submission, return to the home page
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
     } finally {

@@ -6,6 +6,7 @@ import Register from "./pages/Register";
 import CreateListing from "./pages/CreateListing";
 import ListingDetail from "./pages/ListingDetail";
 
+//Routes holds all the routes in the webpage with their corresponding files
 function App() {
   return (
     <BrowserRouter>

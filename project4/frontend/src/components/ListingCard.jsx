@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 
+/*
+Reusable listing card that holds all the listing information. Wraps the entire card in a link that 
+takes the user to the detailed listing. If the description is longer than 100 characters, it gets
+cut off at 100 followed by ... 
+*/
+
 function ListingCard({ listing }) {
   return (
     <Link to={`/listings/${listing._id}`} style={styles.cardLink}>
@@ -101,7 +107,7 @@ const styles = {
 
   cardLink: {
     textDecoration: "none",
-    color: "inherit", // prevents link from turning text blue
+    color: "inherit", //stop the link from turning blue
     display: "block",
   },
 };

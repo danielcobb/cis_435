@@ -1,13 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
+/*
+Navbar that's included on each page. If the user is logged in, it displays their username,
+the link to create a listing, and the logout button. For non-logged in users, it displays
+the option to register or login. 
+*/
 function Navbar() {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = () => {
     logout();
-    navigate("/");
+    navigate("/"); //after logout navigate to the homepage
   };
 
   return (

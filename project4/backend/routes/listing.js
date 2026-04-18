@@ -3,12 +3,17 @@ const router = express.Router()
 const Listing = require('../models/Listing')
 const { protect } = require('../middleware/authMiddleware')
 const upload = require('../middleware/upload')
+/*
+This file handles all the routes relating to listings. protected argument is used to verify 
+that users are logged in. 
+*/
 
-//get all the listings, 
+//get all the listings, and applies filter from the URL query string if they're passed in
 router.get('/', async (req,res) => {
     try {
         const { listingType, condition, search } = req.query
 
+        //this block creates a filter that searches for the items in MongoDB
         const filter = {}
         if (listingType) filter.listingType = listingType
         if (condition) filter.condition = condition
@@ -19,7 +24,8 @@ router.get('/', async (req,res) => {
                 {description: { $regex: search, $options: 'i'}}
             ]
         }
-
+        
+        //finds all the listings based on the fiter, and attaches the usernames to the listings
         const listings = await Listing.find(filter)
         .populate('seller', 'username')
         .sort( {createdAt: -1}) //displays newest listings first
@@ -30,10 +36,10 @@ router.get('/', async (req,res) => {
     }
 })
 
-//get a single listing
+//get a single listing, also includes the user name of the lister
 router.get('/:id', async (req, res) => {
     try {
-        const listing = await Listing.findById(req.params.id)
+        const listing = await Listing.findById(req.params.id) //find the listing with corresponding id from request
         .populate('seller', 'username')
 
         if (!listing) {
@@ -50,15 +56,17 @@ router.get('/:id', async (req, res) => {
 router.post('/', protect, upload.single('image'), async (req, res) => {
     try {
         const listingData = {
-            ...req.body,
-            seller: req.user._id
+            ...req.body, //get the listing data from the request
+            seller: req.user._id //used to display the username in the listing
         }
 
-        if (req.file) {
+        if (req.file) { //used to display the image for the listing
             listingData.imageUrl = `/uploads/${req.file.filename}`
         }
 
-        const listing = await Listing.create(listingData)
+        //save the listing in MongoDB
+        const listing = await Listing.create(listingData) 
+
         res.status(201).json(listing)
     } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message })
@@ -74,14 +82,16 @@ router.put('/:id', protect, async (req, res) => {
             return res.status(404).json({ message: 'Listing not found' })
         }
 
+        //check if the user created the listing
         if (listing.seller.toString() !== req.user._id.toString()) {
             return res.status(403).json({ message: 'Can\'t edit a listing you didn\'t create' })
         }
         
+        //get the new updated listing
         const updated = await Listing.findByIdAndUpdate(
             req.params.id,
             req.body,
-            { new: true, runValidators: true }
+            { new: true, runValidators: true } //returns the new listing while revalidating data
         )
 
         res.json(updated)
@@ -99,11 +109,12 @@ router.delete('/:id', protect, async (req, res) => {
             return res.status(404).json({ message: 'Listing not found'})
         }
 
+        //check if the user owns the listing
         if (listing.seller.toString() !== req.user._id.toString()) {
             return res.status(403).json({ message: 'You can\'t delete a listing you don\'t own' })
         }
 
-        await listing.deleteOne()
+        await listing.deleteOne() //deletes the listing from MongoDB
         res.json({ message: 'Listing removed' })
     }catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message })

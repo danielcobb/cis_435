@@ -29,10 +29,10 @@ function Login() {
         password: formData.password,
       });
 
-      // Store the returned user + token in context and localStorage
+      //Store the returned user + token in context and localStorage
       login(data);
 
-      // Redirect to homepage after successful login
+      //Redirect to homepage after success
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Something went wrong");
