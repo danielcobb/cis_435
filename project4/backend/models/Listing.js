@@ -56,17 +56,15 @@ const listingSchema = new mongoose.Schema({
         enum: ['fork', 'drivetrain', 'brakes', 'wheels', 'handlebars', 'seat', 'frame', 'other', null],
         default: null
     },
-    compatibility: {
-        type: String, 
-        default: null,
-        maxlength: [200, 'Compatibility note cnnot exceed 200 characters']
-    },
-
     //reference to a user in the Users table
     seller: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
+    },
+    imageUrl: {
+        type: String,
+        default:null
     }
 },
 {timestamps: true}

@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Listing = require('../models/Listing')
 const { protect } = require('../middleware/authMiddleware')
+const upload = require('../middleware/upload')
 
 //get all the listings, 
 router.get('/', async (req,res) => {
@@ -30,7 +31,7 @@ router.get('/', async (req,res) => {
 })
 
 //get a single listing
-router.post('/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const listing = await Listing.findById(req.params.id)
         .populate('seller', 'username')
@@ -46,15 +47,20 @@ router.post('/:id', async (req, res) => {
 })
 
 //create a listing, user must be logged in
-router.post('/', protect, async (req, res) => {
+router.post('/', protect, upload.single('image'), async (req, res) => {
     try {
-        const listing = await Listing.create({
+        const listingData = {
             ...req.body,
             seller: req.user._id
-        })
+        }
 
+        if (req.file) {
+            listingData.imageUrl = `/uploads/${req.file.filename}`
+        }
+
+        const listing = await Listing.create(listingData)
         res.status(201).json(listing)
-    }catch (error) {
+    } catch (error) {
         res.status(500).json({ message: 'Server error', error: error.message })
     }
 })
@@ -69,7 +75,7 @@ router.put('/:id', protect, async (req, res) => {
         }
 
         if (listing.seller.toString() !== req.user._id.toString()) {
-            return res.staus(403).json({ message: 'Can\'t edit a listing you didn\'t create' })
+            return res.status(403).json({ message: 'Can\'t edit a listing you didn\'t create' })
         }
         
         const updated = await Listing.findByIdAndUpdate(
