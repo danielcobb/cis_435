@@ -33,7 +33,7 @@ function Home() {
 
   useEffect(() => {
     fetchListings(); //used to filter listings on the parts/bikes and condition filters
-  }, [listingType, condition]);
+  }, [search, listingType, condition]);
 
   const handleSearch = (e) => {
     e.preventDefault(); //stop the page from reloading
